@@ -61,5 +61,20 @@ namespace API.Controllers {
             }
 
         }
+
+        [HttpGet ("ListarHistorial")]
+        public async Task<IActionResult> ListarHistorial () {
+
+            try {
+                int currentUserId = int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value);
+
+                List<Usuario> historial = await _repo.Listar<Usuario> (x => x.Token != "" && x.UsuarioId != currentUserId);
+
+                return Ok (historial.OrderByDescending(x => x.UsuarioId));
+            } catch (Exception ex) {
+                return BadRequest ("Error al listar los historiales, comunicarse con el administrador " + ex.Message);
+            }
+
+        }
     }
 }

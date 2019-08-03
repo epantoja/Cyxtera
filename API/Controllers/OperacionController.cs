@@ -68,6 +68,13 @@ namespace API.Controllers
                 //agrego total de la suma
                 await _repo.Agregar (valor);
 
+                //obtener el usuario para actualizar el valor total
+                Usuario usuario = await _repo.Obtener<Usuario>(x => x.UsuarioId == currentUserId);
+
+                usuario.ValorTotal = valorSuma;
+
+                await _repo.Actualizar(usuario);
+
                 return Ok (true);
             } catch (Exception ex) {
                 return BadRequest ("Error al sumar, comunicarse con el administrador " + ex.Message);
@@ -132,6 +139,13 @@ namespace API.Controllers
                 //agrego total de la suma
                 await _repo.Agregar (valor);
 
+                //obtener el usuario para actualizar el valor total
+                Usuario usuario = await _repo.Obtener<Usuario>(x => x.UsuarioId == currentUserId);
+
+                usuario.ValorTotal = valorResta;
+
+                await _repo.Actualizar(usuario);
+
                 return Ok (true);
             } catch (Exception ex) {
                 return BadRequest ("Error al sumar, comunicarse con el administrador " + ex.Message);
@@ -189,6 +203,13 @@ namespace API.Controllers
                 };
                 //agrego total de la suma
                 await _repo.Agregar (valor);
+
+                //obtener el usuario para actualizar el valor total
+                Usuario usuario = await _repo.Obtener<Usuario>(x => x.UsuarioId == currentUserId);
+
+                usuario.ValorTotal = valorMultiplicacion;
+
+                await _repo.Actualizar(usuario);
 
                 return Ok (true);
             } catch (Exception ex) {
@@ -254,6 +275,13 @@ namespace API.Controllers
                 //agrego total de la suma
                 await _repo.Agregar (valor);
 
+                //obtener el usuario para actualizar el valor total
+                Usuario usuario = await _repo.Obtener<Usuario>(x => x.UsuarioId == currentUserId);
+
+                usuario.ValorTotal = valorDivision;
+
+                await _repo.Actualizar(usuario);
+
                 return Ok (true);
             } catch (Exception ex) {
                 return BadRequest ("Error al sumar, comunicarse con el administrador " + ex.Message);
@@ -317,6 +345,13 @@ namespace API.Controllers
                 };
                 //agrego total de la suma
                 await _repo.Agregar (valor);
+
+                //obtener el usuario para actualizar el valor total
+                Usuario usuario = await _repo.Obtener<Usuario>(x => x.UsuarioId == currentUserId);
+
+                usuario.ValorTotal = valorPotencia;
+
+                await _repo.Actualizar(usuario);
 
                 return Ok (true);
             } catch (Exception ex) {

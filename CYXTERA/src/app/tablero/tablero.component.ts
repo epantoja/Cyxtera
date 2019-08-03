@@ -1,3 +1,4 @@
+import { HistorialComponent } from './../historial/historial.component';
 import { LoginService } from './../Servicios/Login.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ResultadosComponent } from '../resultados/resultados.component';
@@ -10,6 +11,7 @@ import { ResultadosComponent } from '../resultados/resultados.component';
 export class TableroComponent implements OnInit {
 
   @ViewChild(ResultadosComponent) resultados: ResultadosComponent;
+  @ViewChild(HistorialComponent) historial: HistorialComponent;
 
   constructor(public loginService: LoginService) { }
 
@@ -18,5 +20,6 @@ export class TableroComponent implements OnInit {
 
   listarLosValores(parametro: any) {
     this.resultados.listarValores();
+    this.historial.listarHistorico();
   }
 }

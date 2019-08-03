@@ -1,7 +1,8 @@
 import { AlertifyService } from './../Servicios/Alertify.service';
 import { LoginService } from './../Servicios/Login.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { ResultadosComponent } from '../resultados/resultados.component';
 
 @Component({
   selector: 'app-nav',
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   
+  @Output() listarValores = new EventEmitter();
+
   constructor(public loginService: LoginService, 
     private alertifyService : AlertifyService,
     private router: Router) { }
@@ -20,7 +23,7 @@ export class NavComponent implements OnInit {
   nuevaLogueo () {
     this.loginService.login().subscribe(login => {
       this.alertifyService.success("Nueva sesion de calculadora");
-      this.router.navigate(["/tablero"]);
+      this.listarValores.emit({parametro: "listar"});
     }, error => {
       this.alertifyService.error(error);
     });

@@ -1,3 +1,4 @@
+import { Usuario } from './../Model/Usuario';
 import { Valor } from './../Model/Valor';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -23,6 +24,12 @@ export class ValoresService {
     return this.http
       .get(this.baseUrl + "ListarValores")
       .map(response => <Valor[]>response);
+  }
+
+  listarHistorial(): Observable<Usuario[]> {
+    return this.http
+      .get(this.baseUrl + "ListarHistorial")
+      .map(response => <Usuario[]>response);
   }
 
 

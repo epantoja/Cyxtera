@@ -9,8 +9,7 @@ export const routes: Routes =  [
     data: { pageTitle: 'Tablero' },
     children: [
     ]
-  },
-  { path: '**', redirectTo: 'error/error404'}
+  }
 ];
 
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes, {

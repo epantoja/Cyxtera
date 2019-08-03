@@ -16,5 +16,11 @@ namespace API.Model
         /// </summary>
         /// <value>Token llave unica</value>
         public string Token { get; set; }
+
+        /// <summary>
+        /// Valor Total 
+        /// </summary>
+        /// <value>total</value>
+        public double ValorTotal { get; set; }
     }
 }
