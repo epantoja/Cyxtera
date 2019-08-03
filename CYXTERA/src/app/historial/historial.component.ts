@@ -1,5 +1,5 @@
 import { AlertifyService } from './../Servicios/Alertify.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ValoresService } from '../Servicios/Valores.service';
 import { Usuario } from '../Model/Usuario';
 
@@ -11,6 +11,7 @@ import { Usuario } from '../Model/Usuario';
 export class HistorialComponent implements OnInit {
 
   listaHitorico: Usuario[] = [] as Usuario[];
+  @Output() mostrarModal = new EventEmitter();
 
   constructor(private valoresService: ValoresService,
     private alertifyService: AlertifyService) { }
@@ -28,6 +29,10 @@ export class HistorialComponent implements OnInit {
         this.alertifyService.error(error);
       }
     );
+  }
+
+  modal(historicoId: number){
+    this.mostrarModal.emit({historicoId: historicoId});
   }
 
 }

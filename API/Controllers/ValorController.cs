@@ -76,5 +76,19 @@ namespace API.Controllers {
             }
 
         }
+
+        [HttpGet ("ObtenerHistorico/{historicoId}")]
+        public async Task<IActionResult> ObtenerHistorico (int historicoId) {
+
+            try {
+                
+                List<Valor> historial = await _repo.Listar<Valor> (x => x.UsuarioId == historicoId);
+
+                return Ok (historial.OrderByDescending(x => x.ValorId));
+            } catch (Exception ex) {
+                return BadRequest ("Error al listar los historiales, comunicarse con el administrador " + ex.Message);
+            }
+
+        }
     }
 }

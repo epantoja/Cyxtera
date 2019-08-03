@@ -32,5 +32,11 @@ export class ValoresService {
       .map(response => <Usuario[]>response);
   }
 
+  obtenerHistorial(historialId: number): Observable<Valor[]> {
+    return this.http
+      .get(this.baseUrl + "ObtenerHistorico/" + historialId)
+      .map(response => <Valor[]>response);
+  }
+
 
 }

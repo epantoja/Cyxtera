@@ -1,3 +1,4 @@
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { LoginService } from './Servicios/Login.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,6 +18,7 @@ import { OperacionesService } from './Servicios/Operaciones.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jtw.JwtInterceptor';
+import { ModalModule } from 'ngx-bootstrap';
 
 export function tokenGetter() {
   return localStorage.getItem(environment.token);
@@ -36,6 +38,7 @@ export function tokenGetter() {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ModalModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
