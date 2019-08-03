@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
+
 namespace API.Controllers {
     /// <summary>
     /// Clase usuario, registra el token

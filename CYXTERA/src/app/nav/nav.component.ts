@@ -1,6 +1,7 @@
 import { AlertifyService } from './../Servicios/Alertify.service';
 import { LoginService } from './../Servicios/Login.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -10,22 +11,33 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
   
   constructor(public loginService: LoginService, 
-    private alertifyService : AlertifyService) { }
+    private alertifyService : AlertifyService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
-  loguear() {
+  nuevaLogueo () {
     this.loginService.login().subscribe(login => {
+      this.alertifyService.success("Nueva sesion de calculadora");
+      this.router.navigate(["/tablero"]);
     }, error => {
       this.alertifyService.error(error);
     });
   }
 
-  logout() {
+  logueo () {
+    this.loginService.login().subscribe(login => {
+      this.alertifyService.success("Iniciando calculadora");
+    }, error => {
+      this.alertifyService.error(error);
+    });
+  }
+
+  salir() {
     this.loginService.userToken = null;
     localStorage.removeItem("token");
-    this.alertifyService.message("Chao, vuelve pronto");
+    this.alertifyService.message("vuelve pronto");
   }
 
 }

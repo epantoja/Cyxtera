@@ -7,6 +7,8 @@ using API.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers {
     /// <summary>
@@ -53,7 +55,7 @@ namespace API.Controllers {
 
                 List<Valor> valores = await _repo.Listar<Valor> (x => x.UsuarioId == currentUserId);
 
-                return Ok (valores);
+                return Ok (valores.OrderByDescending(x => x.ValorId));
             } catch (Exception ex) {
                 return BadRequest ("Error al listar los valores, comunicarse con el administrador " + ex.Message);
             }

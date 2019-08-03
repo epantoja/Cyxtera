@@ -13,6 +13,10 @@ import { AlertifyService } from './Servicios/Alertify.service';
 import { HttpModule } from '@angular/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
+import { OperacionesService } from './Servicios/Operaciones.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { JwtInterceptor } from './helpers/jtw.JwtInterceptor';
 
 export function tokenGetter() {
   return localStorage.getItem(environment.token);
@@ -31,6 +35,7 @@ export function tokenGetter() {
     HttpModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -44,7 +49,10 @@ export function tokenGetter() {
   ],
   providers: [
     AlertifyService,
-    LoginService
+    LoginService,
+    OperacionesService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

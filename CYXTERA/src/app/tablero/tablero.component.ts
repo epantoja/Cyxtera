@@ -1,5 +1,6 @@
 import { LoginService } from './../Servicios/Login.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ResultadosComponent } from '../resultados/resultados.component';
 
 @Component({
   selector: 'app-tablero',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableroComponent implements OnInit {
 
+  @ViewChild(ResultadosComponent) resultados: ResultadosComponent;
+
   constructor(public loginService: LoginService) { }
 
   ngOnInit() {
   }
 
+  listarLosValores(parametro: any) {
+    this.resultados.listarValores();
+  }
 }

@@ -9,11 +9,10 @@
       
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <button *ngIf="loginService.sesionIniciada()"  class="btn btn-success my-2 my-sm-0" type="button" (click)="loguear()">Iniciar Sesion</button>
-      <button *ngIf="!loginService.sesionIniciada()"  class="btn btn-success my-2 my-sm-0" type="button" (click)="loguear()">Nueva Sesion</button>  
-      <button *ngIf="!loginService.sesionIniciada()"  class="btn btn-secondary my-2 my-sm-0" type="button" (click)="logout()">Cerrar Sesion</button>
+      <button *ngIf="loginService.sesionIniciada()"  class="btn btn-success my-2 my-sm-0" type="button" (click)="logueo()">Iniciar Sesion</button>
+      <button *ngIf="!loginService.sesionIniciada()"  class="btn btn-success my-2 my-sm-0" type="button" (click)="nuevaLogueo()">Nueva Sesion</button> &nbsp;
+      <button *ngIf="!loginService.sesionIniciada()"  class="btn btn-secondary my-2 my-sm-0" type="button" (click)="salir()">Cerrar Sesion</button>
     </form>
 
-    
   </div>
 </nav>

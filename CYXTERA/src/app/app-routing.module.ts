@@ -7,7 +7,6 @@ export const routes: Routes =  [
     path: '',
     component: TableroComponent,
     data: { pageTitle: 'Tablero' },
-    //resolve: { parametros: AppResolver },
     children: [
     ]
   },

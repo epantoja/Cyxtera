@@ -1,6 +1,8 @@
 <br>
 <br>
 <br>
+<br>
+<br>
 <div *ngIf="!loginService.sesionIniciada()" class="container">
     <div class="page-header" id="banner">
 
@@ -19,15 +21,24 @@
   <div class="row">
     <div class="col-lg-3 col-md-4 col-sm-12">
       <h4 class="text-center">Historial</h4>
-      <app-historial></app-historial>
+      <app-historial #historia></app-historial>
     </div>
     <div class="col-lg-6 col-md-4 col-sm-12">
       <h4 class="text-center">Agregar Valor</h4>
-      <app-agregar-valor></app-agregar-valor>
+      <app-agregar-valor (listarValores)="listarLosValores($event)"></app-agregar-valor>
     </div>
     <div class="col-lg-3 col-md-4 col-sm-12">
       <h4 class="text-center">Resualtados</h4>
-      <app-resultados></app-resultados>
+      <app-resultados  #resultados></app-resultados>
     </div>
   </div>
+</div>
+
+<div class="text-center" *ngIf="loginService.sesionIniciada()" >
+    <div class="col-lg-12">
+        <div class="page-header">
+          <h1 >CYXTERA</h1>
+          <h1 >Sistema de calculo</h1>
+        </div>
+      </div>
 </div>

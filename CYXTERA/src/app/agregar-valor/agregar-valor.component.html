@@ -1,7 +1,21 @@
 <div class="card border-primary mb-12" style="max-width: 100%;">
-  <div class="card-header">Header</div>
+  <div class="card-header">Calculadorra Cyxtera</div>
   <div class="card-body">
-    <h4 class="card-title">Primary card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h4 class="card-title">Nuevo Valor</h4>
+        <fieldset>
+          <div class="form-group ">
+            <div class="col-sm-12">
+              <input type="number" class="form-control" id="txtValor" #txtValor (keyup.enter)="registrarValor(txtValor)" value="">
+            </div>
+          </div>
+          
+          <div class="btn-group align-content-center" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-secondary" (click)="sumarValores()">Suma</button>
+              <button type="button" class="btn btn-secondary" (click)="restarValores()">Resta</button>
+              <button type="button" class="btn btn-secondary" (click)="multiplicarValores()">Multiplicacion</button>
+              <button type="button" class="btn btn-secondary" (click)="dividirValores()">Division</button>
+              <button type="button" class="btn btn-secondary" (click)="potenciaValores()">Potensiacion</button>
+            </div>
+        </fieldset>
   </div>
 </div>
