@@ -15,7 +15,15 @@ namespace API
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
-            
+
+            var logRepository = log4net.LogManager.GetRepository(System.Reflection.Assembly.GetEntryAssembly());
+
+            //log4net configuraiton for consoleappendar - no config gile needed
+            //log4net.Config.BasicConfigurator.Configure(logRepository);
+
+            //Load configuration from log4net.config file
+            log4net.Config.XmlConfigurator.Configure(logRepository,
+                                                     new System.IO.FileInfo("log4net.config"));   
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

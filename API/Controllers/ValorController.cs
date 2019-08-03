@@ -6,6 +6,7 @@ using API.Data;
 using API.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace API.Controllers {
     /// <summary>
@@ -36,8 +37,6 @@ namespace API.Controllers {
                 };
 
                 await _repo.Agregar (valor);
-
-                
 
                 return Ok (true);
             } catch (Exception ex) {
