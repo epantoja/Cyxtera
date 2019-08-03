@@ -32,7 +32,7 @@ namespace API.Controllers
                 //listo todos los valores
                 List<Valor> valores = await _repo.Listar<Valor> (x => x.UsuarioId == currentUserId);
 
-                if (valores.Where(x => x.Signo == null && x.Operacion == "Agregar").Count() == 1) {
+                if (valores.Where(x => x.Signo == null && x.Operacion == "Agregar").Count() <= 1) {
                     return BadRequest ("Por favor registre el operando");
                 }
 
@@ -94,7 +94,7 @@ namespace API.Controllers
                 //listo todos los valores
                 List<Valor> valores = await _repo.Listar<Valor> (x => x.UsuarioId == currentUserId);
 
-                if (valores.Where(x => x.Signo == null && x.Operacion == "Agregar").Count() == 1) {
+                if (valores.Where(x => x.Signo == null && x.Operacion == "Agregar").Count() <= 1) {
                     return BadRequest ("Por favor registre otro operando");
                 }
 
@@ -164,7 +164,7 @@ namespace API.Controllers
                 //listo todos los valores
                 List<Valor> valores = await _repo.Listar<Valor> (x => x.UsuarioId == currentUserId);
 
-                if (valores.Where(x => x.Signo == null && x.Operacion == "Agregar").Count() == 1) {
+                if (valores.Where(x => x.Signo == null && x.Operacion == "Agregar").Count() <= 1) {
                     return BadRequest ("Por favor registre otro operando");
                 }
 
@@ -230,7 +230,7 @@ namespace API.Controllers
                 //listo todos los valores
                 List<Valor> valores = await _repo.Listar<Valor> (x => x.UsuarioId == currentUserId);
 
-                if (valores.Where(x => x.Signo == null && x.Operacion == "Agregar").Count() == 1) {
+                if (valores.Where(x => x.Signo == null && x.Operacion == "Agregar").Count() <= 1) {
                     return BadRequest ("Por favor registre otro operando");
                 }
 
@@ -301,7 +301,9 @@ namespace API.Controllers
                 //listo todos los valores
                 List<Valor> valores = await _repo.Listar<Valor> (x => x.UsuarioId == currentUserId);
 
-                if (valores.Where(x => x.Signo == null && x.Operacion == "Agregar").Count() == 1) {
+                
+
+                if (valores.Where(x => x.Signo == null && x.Operacion == "Agregar").Count() <= 1) {
                     return BadRequest ("Por favor registre otro operando");
                 }
 
