@@ -30,6 +30,13 @@ namespace API.Model
         public string Operacion { get; set; }
 
         /// <summary>
+        /// Operacion del usuario
+        /// </summary>
+        /// <value></value>
+        [Display(Name = "Signo de la operacion")]
+        public string Signo { get; set; }
+
+        /// <summary>
         /// Referencia del usuario
         /// </summary>
         /// <value>Usuario</value>

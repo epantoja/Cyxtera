@@ -35,8 +35,13 @@ namespace API.Data
             return result;
         }
 
-        public async Task<bool> Actualizar<T> (int id, T Entity) where T : class {
+        public async Task<bool> Actualizar<T> (T Entity) where T : class {
             _context.Set<T>().Update(Entity);
+            return await _context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<bool> ActualizarLista<T> (List<T> Entity) where T : class {
+            _context.Set<T>().UpdateRange(Entity);
             return await _context.SaveChangesAsync() > 0;
         }
     }

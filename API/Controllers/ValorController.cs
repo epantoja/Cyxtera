@@ -37,6 +37,8 @@ namespace API.Controllers {
 
                 await _repo.Agregar (valor);
 
+                
+
                 return Ok (true);
             } catch (Exception ex) {
                 return BadRequest ("Error al agregar un valor, comunicarse con el administrador " + ex.Message);

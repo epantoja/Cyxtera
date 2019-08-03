@@ -51,11 +51,9 @@ namespace API.Controllers {
             var token = tokenHandler.CreateToken (tokenDescriptor);
             var tokenString = tokenHandler.WriteToken (token);
 
-            crearUsuario = new Usuario {
-                Token = tokenString
-            };
+            crearUsuario.Token = tokenString;
 
-            bool userUpdate = await _repo.Actualizar (userCreate.UsuarioId, crearUsuario);
+            bool userUpdate = await _repo.Actualizar (crearUsuario);
 
             return Ok (new { tokenString });
         }
