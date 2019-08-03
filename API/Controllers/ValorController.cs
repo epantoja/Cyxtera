@@ -1,3 +1,4 @@
+using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using API.Data;
@@ -5,15 +6,13 @@ using API.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers
-{
+namespace API.Controllers {
     /// <summary>
     /// clase que registra el valor por usuario
     /// </summary>
     [Authorize]
-    [Route("api/[controller]")]
-    public class ValorController: ControllerBase
-    {
+    [Route ("api/[controller]")]
+    public class ValorController : ControllerBase {
         private readonly IRepositorio _repo;
 
         public ValorController (IRepositorio repo) {
@@ -23,30 +22,41 @@ namespace API.Controllers
         [HttpPost ("RegistrarValor")]
         public async Task<IActionResult> RegistrarValor ([FromBody] Valor valorOperacion) {
 
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            try {
+                if (!ModelState.IsValid)
+                    return BadRequest (ModelState);
 
-            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            
-            Valor valor = new Valor() {
-                UsuarioId = currentUserId,
-                ValorOperacion = valorOperacion.ValorOperacion,
-                Operacion = "Agregar"
-            };
+                var currentUserId = int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value);
 
-            await _repo.Agregar (valor);
+                Valor valor = new Valor () {
+                    UsuarioId = currentUserId,
+                    ValorOperacion = valorOperacion.ValorOperacion,
+                    Operacion = "Agregar"
+                };
 
-            return Ok (true);
+                await _repo.Agregar (valor);
+
+                return Ok (true);
+            } catch (Exception ex) {
+                return BadRequest ("Error al agregar un valor, comunicarse con el administrador " + ex.Message);
+            }
+
         }
 
         [HttpGet ("ListarValores")]
         public async Task<IActionResult> ListarValores () {
 
-            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            
-            var valores = await _repo.Listar<Valor>(x=>x.UsuarioId == currentUserId);
+            try {
+                var currentUserId = int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value);
 
-            return Ok (valores);
+                var valores = await _repo.Listar<Valor> (x => x.UsuarioId == currentUserId);
+
+                return Ok (valores);
+            }
+            catch(Exception ex) {
+                return BadRequest ("Error al listar los valores, comunicarse con el administrador " + ex.Message);
+            }
+            
         }
     }
 }
