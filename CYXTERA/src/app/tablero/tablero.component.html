@@ -1,0 +1,33 @@
+<br>
+<br>
+<br>
+<div *ngIf="!loginService.sesionIniciada()" class="container">
+    <div class="page-header" id="banner">
+
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6">
+            <h1>Cyxtera</h1>
+            <p class="lead">Operaciones</p>
+          </div>
+          <div class="col-lg-4 col-md-5 col-sm-6">
+            <div class="sponsor">
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-12">
+      <h4 class="text-center">Historial</h4>
+      <app-historial></app-historial>
+    </div>
+    <div class="col-lg-6 col-md-4 col-sm-12">
+      <h4 class="text-center">Agregar Valor</h4>
+      <app-agregar-valor></app-agregar-valor>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-12">
+      <h4 class="text-center">Resualtados</h4>
+      <app-resultados></app-resultados>
+    </div>
+  </div>
+</div>

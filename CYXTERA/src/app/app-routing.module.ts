@@ -1,10 +1,19 @@
-import { NgModule } from '@angular/core';
+import { TableroComponent } from './tablero/tablero.component';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+export const routes: Routes =  [
+  {
+    path: '',
+    component: TableroComponent,
+    data: { pageTitle: 'Tablero' },
+    //resolve: { parametros: AppResolver },
+    children: [
+    ]
+  },
+  { path: '**', redirectTo: 'error/error404'}
+];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes, {
+  useHash: true,
+});
