@@ -10,19 +10,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace API.Controllers
-{
+namespace API.Controllers {
     /// <summary>
     /// Clase usuario, registra el token
     /// </summary>
-    [Route("api/[controller]")]
-    public class UsuarioController: ControllerBase
-    {
+    [Route ("api/[controller]")]
+    public class UsuarioController : ControllerBase {
         private readonly IRepositorio _repo;
         private readonly IConfiguration _configuration;
 
-        public UsuarioController(IRepositorio repo, IConfiguration configuration)
-        {
+        public UsuarioController (IRepositorio repo, IConfiguration configuration) {
             this._repo = repo;
             _configuration = configuration;
         }
@@ -32,11 +29,10 @@ namespace API.Controllers
         /// </summary>
         /// <param name="usuario">Token a Guardar</param>
         [HttpGet ("Registrar")]
-        public async Task<ActionResult> Registrar()
-        {
+        public async Task<ActionResult> Registrar () {
 
             Usuario crearUsuario = new Usuario {
-                Token = Path.GetRandomFileName()
+                Token = Path.GetRandomFileName ()
             };
 
             var userCreate = await _repo.Agregar (crearUsuario);
@@ -45,7 +41,7 @@ namespace API.Controllers
             var key = Encoding.ASCII.GetBytes (_configuration.GetSection ("AppSettings:Token").Value);
             var tokenDescriptor = new SecurityTokenDescriptor {
                 Subject = new ClaimsIdentity (new Claim[] {
-                new Claim (ClaimTypes.NameIdentifier, userCreate.UsuarioId.ToString())
+                new Claim (ClaimTypes.NameIdentifier, userCreate.UsuarioId.ToString ())
                 }),
                 Expires = DateTime.Now.AddDays (1),
                 SigningCredentials = new SigningCredentials (new SymmetricSecurityKey (key),
@@ -58,7 +54,7 @@ namespace API.Controllers
             crearUsuario = new Usuario {
                 Token = tokenString
             };
-            
+
             bool userUpdate = await _repo.Actualizar (userCreate.UsuarioId, crearUsuario);
 
             return Ok (new { tokenString });

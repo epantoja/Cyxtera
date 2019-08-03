@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using API.Data;
@@ -26,7 +27,7 @@ namespace API.Controllers {
                 if (!ModelState.IsValid)
                     return BadRequest (ModelState);
 
-                var currentUserId = int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value);
+                int currentUserId = int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value);
 
                 Valor valor = new Valor () {
                     UsuarioId = currentUserId,
@@ -47,16 +48,15 @@ namespace API.Controllers {
         public async Task<IActionResult> ListarValores () {
 
             try {
-                var currentUserId = int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value);
+                int currentUserId = int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value);
 
-                var valores = await _repo.Listar<Valor> (x => x.UsuarioId == currentUserId);
+                List<Valor> valores = await _repo.Listar<Valor> (x => x.UsuarioId == currentUserId);
 
                 return Ok (valores);
-            }
-            catch(Exception ex) {
+            } catch (Exception ex) {
                 return BadRequest ("Error al listar los valores, comunicarse con el administrador " + ex.Message);
             }
-            
+
         }
     }
 }

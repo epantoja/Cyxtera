@@ -19,12 +19,14 @@ namespace API.Model
         /// Valor de operacion
         /// </summary>
         /// <value>Valor</value>
-        public int  ValorOperacion { get; set; }
+        [Display(Name = "Valor de la operacion")]
+        public double  ValorOperacion { get; set; }
 
         /// <summary>
         /// Operacion del usuario
         /// </summary>
         /// <value></value>
+        [Display(Name = "Operacion")]
         public string Operacion { get; set; }
 
         /// <summary>
