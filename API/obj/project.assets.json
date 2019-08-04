@@ -12411,11 +12411,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Proyectos\\Prueba Tecnica Cyxtera\\API\\API.csproj",
+      "projectUniqueName": "d:\\Proyectos\\Prueba Tecnica Cyxtera\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\Proyectos\\Prueba Tecnica Cyxtera\\API\\API.csproj",
+      "projectPath": "d:\\Proyectos\\Prueba Tecnica Cyxtera\\API\\API.csproj",
       "packagesPath": "C:\\Users\\Erwin\\.nuget\\packages\\",
-      "outputPath": "D:\\Proyectos\\Prueba Tecnica Cyxtera\\API\\obj\\",
+      "outputPath": "d:\\Proyectos\\Prueba Tecnica Cyxtera\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

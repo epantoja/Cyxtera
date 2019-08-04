@@ -1,0 +1,14 @@
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\bin\Debug\netcoreapp2.1\API.TEST.deps.json
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\bin\Debug\netcoreapp2.1\API.TEST.runtimeconfig.json
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\bin\Debug\netcoreapp2.1\API.TEST.runtimeconfig.dev.json
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\bin\Debug\netcoreapp2.1\API.TEST.dll
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\bin\Debug\netcoreapp2.1\API.TEST.pdb
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\obj\Debug\netcoreapp2.1\API.TEST.csprojAssemblyReference.cache
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\obj\Debug\netcoreapp2.1\API.TEST.csproj.CoreCompileInputs.cache
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\obj\Debug\netcoreapp2.1\API.TEST.AssemblyInfoInputs.cache
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\obj\Debug\netcoreapp2.1\API.TEST.AssemblyInfo.cs
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\obj\Debug\netcoreapp2.1\API.TEST.dll
+D:\Proyectos\Prueba Tecnica Cyxtera\API.TEST\obj\Debug\netcoreapp2.1\API.TEST.pdb

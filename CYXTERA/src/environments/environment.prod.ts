@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: "https://localhost:5001/api/",
+  apiUrl: "http://server:5000/api/",
   token: "token"
 };
