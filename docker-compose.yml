@@ -1,0 +1,22 @@
+version: '3'
+services: 
+  server:
+    image: winerpe14/cyxtera-app-server:1.0
+    ports: 
+      - 5000:80
+    networks: 
+      - cyxtera
+    # build: 
+    #   context: API
+  client:
+    image: winerpe14/cyxtera-app-cli:1.0
+    ports: 
+      - 89:80 
+    depends_on: 
+      - server
+    networks: 
+      - cyxtera
+    # build: 
+    #   context: CYXTERA      
+networks: 
+  cyxtera:
